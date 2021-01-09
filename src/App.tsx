@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Launch from './components/Launch'
+import LaunchDetails from './components/LaunchDetails'
 import './App.css';
+import LaunchType from './types/Launch'
 
 function App() {
+
+  const [id,setId]=useState<string>("");
+  const [launches,setLaunches]=useState<LaunchType[]>([])
+
+  const homeHandler=()=>{
+
+    setId("");
+  }
+  const detailHandler=(idd:string,event:any)=>{
+       setId(idd);
+     
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div><h3 className="app-heading" onClick={()=>homeHandler()}>Home</h3></div>
+    {id===""?<Launch detailHandler={detailHandler} setLaunch={setLaunches} />:<LaunchDetails id={id.toString()} />}
+    
     </div>
   );
 }
