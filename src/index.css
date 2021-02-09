@@ -5,6 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(135, 155, 158);
+}
+img {
+  max-width: 30%;
+  max-height: 30%;
+  height: 30vh;
+  background-size: cover;
 }
 
 code {
